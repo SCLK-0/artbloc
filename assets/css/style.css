@@ -4825,7 +4825,7 @@ figure.card-banner,
   justify-content: center;
   cursor: pointer;
   transition: var(--transition-2);
-  z-index: 10;
+  z-index: 1;
   backdrop-filter: blur(10px);
 }
 
