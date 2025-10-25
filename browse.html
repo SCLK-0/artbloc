@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <!-- 
+    adapts to different devices 
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ArtBloc</title>
+
+  <!-- 
+    browser icon
+  -->
+  <link rel="icon" href="./assets/images/nftgod.png" type="image/png">
+
+  <!-- 
+    external css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/profile-styles.css">
+
+  <!-- 
+    google font link
+  -->
+
+  <!-- 
+    Poppins and Jost font 
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@600;900&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+
+
+  <!-- 
+    HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="index.html" class="logo">
+        <img src="./assets/images/logo.png" width="68" height="48" alt="Logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <p class="navbar-title">Menu</p>
+
+          <!-- 
+            for responsive navbar
+          -->
+          <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="index.html" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="browse.html" class="navbar-link">Browse</a>
+          </li>
+
+          <li>
+            <a href="about.html" class="navbar-link">About the design</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!-- 
+        for responsive navbar 
+      -->
+      <button class="menu-open-btn" aria-label="Open Menu" data-nav-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <div class="header-actions" id="headerActions">
+        <!-- This will be dynamically updated based on login status -->
+      </div>
+
+      <!-- Wallet Connection Modal -->
+      <div id="walletModal" class="wallet-modal">
+        <div class="wallet-modal-content">
+          <div class="wallet-modal-header">
+            <div class="wallet-modal-logo">
+              <img src="./assets/images/logo.png" width="48" height="34" alt="ArtBloc Logo">
+            </div>
+            <h2>Connect with ArtBloc</h2>
+            <button class="wallet-modal-close" onclick="closeWalletModal()">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+
+          <div class="wallet-modal-body">
+            <div class="wallet-options">
+              <button class="wallet-option-btn" onclick="connectWallet('metamask')">
+                <div class="wallet-icon metamask">
+                  <ion-icon name="logo-firefox"></ion-icon>
+                </div>
+                <span>MetaMask</span>
+              </button>
+
+              <button class="wallet-option-btn" onclick="connectWallet('coinbase')">
+                <div class="wallet-icon coinbase">
+                  <ion-icon name="card"></ion-icon>
+                </div>
+                <span>Coinbase Wallet</span>
+              </button>
+
+              <button class="wallet-option-btn" onclick="connectWallet('abstract')">
+                <div class="wallet-icon abstract">
+                  <ion-icon name="star-outline"></ion-icon>
+                </div>
+                <span>Abstract</span>
+              </button>
+
+              <button class="wallet-option-btn" onclick="connectWallet('walletconnect')">
+                <div class="wallet-icon walletconnect">
+                  <ion-icon name="phone-portrait"></ion-icon>
+                </div>
+                <span>WalletConnect</span>
+              </button>
+
+              <button class="wallet-option-btn more-options" onclick="showMoreWallets()">
+                <span>More Wallet Options</span>
+              </button>
+            </div>
+
+            <div class="wallet-separator">
+              <span>or continue with email</span>
+            </div>
+
+            <button class="wallet-option-btn email-option" onclick="connectWithEmail()">
+              <span>Continue with email</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+          </div>
+
+          <div class="wallet-modal-footer">
+            <p>By connecting your wallet and using ArtBloc, you agree to our <a href="#">Terms of Service</a> & <a
+                href="#">Privacy Policy</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Authentication Modal -->
+      <div id="authModal" class="auth-modal">
+        <div class="auth-modal-content">
+          <div class="auth-modal-header">
+            <button class="auth-modal-close" onclick="closeAuthModal()">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+
+          <div class="auth-container">
+            <!-- Auth Toggle -->
+            <div class="auth-toggle">
+              <button class="auth-toggle-btn active" onclick="showLogin()"><span>Login</span></button>
+              <button class="auth-toggle-btn" onclick="showSignup()"><span>Sign Up</span></button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form active">
+              <div class="auth-header">
+                <h2 class="auth-title">Welcome Back</h2>
+                <p class="auth-subtitle">Sign in to your ArtBloc account</p>
+              </div>
+
+              <form class="form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                  <label for="loginEmail">Email Address</label>
+                  <div class="input-wrapper">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="loginPassword">Password</label>
+                  <div class="input-wrapper">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-options">
+                  <label class="checkbox-wrapper">
+                    <input type="checkbox" id="rememberMe">
+                    <span class="checkmark"></span>
+                    <span class="checkbox-text">Remember me</span>
+                  </label>
+                  <a href="#" class="forgot-link">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="auth-btn primary">
+                  <ion-icon name="log-in-outline"></ion-icon>
+                  <span>Sign In</span>
+                </button>
+
+                <div class="auth-divider">
+                  <span>or continue with</span>
+                </div>
+
+                <div class="social-auth">
+                  <button type="button" class="social-btn" onclick="socialLogin('google')">
+                    <ion-icon name="logo-google"></ion-icon>
+                    <span>Google</span>
+                  </button>
+                  <button type="button" class="social-btn" onclick="socialLogin('github')">
+                    <ion-icon name="logo-github"></ion-icon>
+                    <span>GitHub</span>
+                  </button>
+                  <button type="button" class="social-btn" onclick="socialLogin('discord')">
+                    <ion-icon name="logo-discord"></ion-icon>
+                    <span>Discord</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signupForm" class="auth-form">
+              <div class="auth-header">
+                <h2 class="auth-title">Create Account</h2>
+                <p class="auth-subtitle">Join the ArtBloc community</p>
+              </div>
+
+              <form class="form" onsubmit="handleSignup(event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <div class="input-wrapper">
+                      <ion-icon name="person-outline"></ion-icon>
+                      <input type="text" id="firstName" placeholder="First name" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <div class="input-wrapper">
+                      <ion-icon name="person-outline"></ion-icon>
+                      <input type="text" id="lastName" placeholder="Last name" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="signupEmail">Email Address</label>
+                  <div class="input-wrapper">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <div class="input-wrapper">
+                    <ion-icon name="at-outline"></ion-icon>
+                    <input type="text" id="username" placeholder="Choose a username" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="signupPassword">Password</label>
+                  <div class="input-wrapper">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" id="signupPassword" placeholder="Create a password" required>
+                    <button type="button" class="password-toggle" onclick="togglePassword('signupPassword')">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+                  </div>
+                  <div class="password-strength">
+                    <div class="strength-bar">
+                      <div class="strength-fill"></div>
+                    </div>
+                    <span class="strength-text">Password strength</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="confirmPassword">Confirm Password</label>
+                  <div class="input-wrapper">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                  </div>
+                </div>
+
+                <div class="form-options">
+                  <label class="checkbox-wrapper">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <span class="checkmark"></span>
+                    <span class="checkbox-text">I agree to the Terms of Service and Privacy Policy</span>
+                  </label>
+                </div>
+
+                <button type="submit" class="auth-btn primary">
+                  <ion-icon name="person-add-outline"></ion-icon>
+                  <span>Create Account</span>
+                </button>
+
+                <div class="auth-divider">
+                  <span>or continue with</span>
+                </div>
+
+                <div class="social-auth">
+                  <button type="button" class="social-btn" onclick="socialLogin('google')">
+                    <ion-icon name="logo-google"></ion-icon>
+                    <span>Google</span>
+                  </button>
+                  <button type="button" class="social-btn" onclick="socialLogin('github')">
+                    <ion-icon name="logo-github"></ion-icon>
+                    <span>GitHub</span>
+                  </button>
+                  <button type="button" class="social-btn" onclick="socialLogin('discord')">
+                    <ion-icon name="logo-discord"></ion-icon>
+                    <span>Discord</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+
+      <!-- 
+        BROWSE
+      -->
+
+      <section class="section explore" id="explore">
+        <div class="container">
+
+          <p class="section-subtitle">Check out the most recent NFTs</p>
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">Browse</h2>
+
+          </div>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/1.jpg" width="600" height="600" loading="lazy" alt="Walking On Air"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">Bidyu</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Amparo</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="1.5">1.5 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('Bidyu', '1.5', './assets/images/1.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary" onclick="openPlaceBidModal('Bidyu', '1.5', './assets/images/1.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('Bidyu', './assets/images/1.jpg')" title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/2.jpg" width="600" height="600" loading="lazy" alt="Domain Names"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">Rubut</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Amparo</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="2.7">2.7 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('Rubut', '2.7', './assets/images/2.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary" onclick="openPlaceBidModal('Rubut', '2.7', './assets/images/2.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('Rubut', './assets/images/2.jpg')" title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/3.jpg" width="600" height="600" loading="lazy" alt="Trading Cards"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">Pusyun</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Amparo</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="2.3">2.3 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('Pusyun', '2.3', './assets/images/3.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary" onclick="openPlaceBidModal('Pusyun', '2.3', './assets/images/3.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('Pusyun', './assets/images/3.jpg')"
+                    title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/4.jpg" width="600" height="600" loading="lazy" alt="Industrial Revolution"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">Pono</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Amparo</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="1.8">1.8 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('Pono', '1.8', './assets/images/4.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary" onclick="openPlaceBidModal('Pono', '1.8', './assets/images/4.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('Pono', './assets/images/4.jpg')" title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/5.jpg" width="600" height="600" loading="lazy" alt="Utility"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">Intenet</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Bejorn</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="1.7">1.7 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('Intenet', '1.7', './assets/images/5.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary" onclick="openPlaceBidModal('Intenet', '1.7', './assets/images/5.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('Intenet', './assets/images/5.jpg')"
+                    title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/6.jpg" width="600" height="600" loading="lazy" alt="Sports"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">GSP</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Amparo</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="1.7">1.7 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('GSP', '1.7', './assets/images/6.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary" onclick="openPlaceBidModal('GSP', '1.7', './assets/images/6.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('GSP', './assets/images/6.jpg')" title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/7.jpg" width="600" height="600" loading="lazy" alt="Cartoon landinges"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">File</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Bejorn</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="3.2">3.2 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('File', '3.2', './assets/images/7.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary" onclick="openPlaceBidModal('File', '3.2', './assets/images/7.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('File', './assets/images/7.jpg')" title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/8.jpg" width="600" height="600" loading="lazy" alt="Gaming Chair"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">Firewoal</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Amparo</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="0.69">0.69 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('Firewoal', '0.69', './assets/images/8.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary"
+                    onclick="openPlaceBidModal('Firewoal', '0.69', './assets/images/8.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('Firewoal', './assets/images/8.jpg')"
+                    title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/9.jpg" width="600" height="600" loading="lazy" alt="Utility"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">Erplen</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Amparo</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="1.7">1.7 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('Erplen', '1.7', './assets/images/9.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary" onclick="openPlaceBidModal('Erplen', '1.7', './assets/images/9.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('Erplen', './assets/images/9.jpg')"
+                    title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/10.jpg" width="600" height="600" loading="lazy" alt="Sports"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">Dinosor</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Amparo</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="1.7">1.7 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('Dinosor', '1.7', './assets/images/10.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary" onclick="openPlaceBidModal('Dinosor', '1.7', './assets/images/10.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('Dinosor', './assets/images/10.jpg')"
+                    title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/11.jpg" width="600" height="600" loading="lazy" alt="Cartoon landinges"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">JKrate</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Bejorn</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="3.2">3.2 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('JKrate', '3.2', './assets/images/11.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary" onclick="openPlaceBidModal('JKrate', '3.2', './assets/images/11.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('JKrate', './assets/images/11.jpg')"
+                    title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card explore-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/12.jpg" width="600" height="600" loading="lazy" alt="Gaming Chair"
+                      class="img-cover">
+                  </a>
+                  <button class="heart-btn" onclick="toggleHeart(event, this)" title="Add to Favorites">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+                </figure>
+
+                <h3 class="h3 card-title">
+                  <a href="#">Chipiripip</a>
+                </h3>
+
+                <span class="card-author">
+                  Owned By <a href="#" class="author-link">Bejorn</a>
+                </span>
+
+                <div class="wrapper">
+                  <data class="wrapper-item" value="0.69">0.69 ETH</data>
+
+                  <span class="wrapper-item">1 of 1</span>
+                </div>
+
+                <div class="card-actions">
+                  <button class="btn primary" onclick="openBuyNowModal('Chipiripip', '0.69', './assets/images/12.jpg')">
+                    <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button class="btn secondary"
+                    onclick="openPlaceBidModal('Chipiripip', '0.69', './assets/images/12.jpg')">
+                    <ion-icon name="hammer-outline" aria-hidden="true"></ion-icon>
+                    <span>Place Bid</span>
+                  </button>
+                  <button class="btn-icon" onclick="openPreviewModal('Chipiripip', './assets/images/12.jpg')"
+                    title="Preview">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+          <!-- Load More Section -->
+          <div class="load-more-section">
+            <button class="load-more-btn" onclick="alert('Load more NFTs feature coming soon!')">
+              <span>Load More NFTs</span>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Place a Bid Modal -->
+      <div id="placeBidModal" class="transaction-modal">
+        <div class="transaction-modal-content">
+          <div class="transaction-modal-header">
+            <h2>Place a Bid</h2>
+            <button class="transaction-modal-close" onclick="closePlaceBidModal()">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+
+          <div class="transaction-modal-body">
+            <div class="nft-preview">
+              <img id="bidNftImage" src="" alt="" class="nft-preview-image">
+              <div class="nft-preview-info">
+                <h3 id="bidNftTitle"></h3>
+                <p class="current-price">Current Price: <span id="bidCurrentPrice"></span> ETH</p>
+              </div>
+            </div>
+
+            <div class="bid-form">
+              <div class="form-group">
+                <label for="bidAmount">Your Bid Amount</label>
+                <div class="input-group">
+                  <span class="eth-icon">Ξ</span>
+                  <input type="number" id="bidAmount" placeholder="0.00" step="0.01" min="0">
+                  <span class="currency">ETH</span>
+                </div>
+                <p class="input-help">Minimum bid: <span id="minimumBid"></span> ETH</p>
+              </div>
+
+              <div class="bid-summary">
+                <div class="summary-row">
+                  <span>Your bid</span>
+                  <span id="bidSummaryAmount">0.00 ETH</span>
+                </div>
+                <div class="summary-row">
+                  <span>Service fee (2.5%)</span>
+                  <span id="bidServiceFee">0.00 ETH</span>
+                </div>
+                <div class="summary-row total">
+                  <span>Total</span>
+                  <span id="bidTotal">0.00 ETH</span>
+                </div>
+              </div>
+
+              <button class="transaction-btn primary" onclick="submitBid()">
+                <ion-icon name="hammer-outline"></ion-icon>
+                <span>Place Bid</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview Modal -->
+      <div id="previewModal" class="preview-modal">
+        <div class="preview-modal-content">
+          <div class="preview-modal-header">
+            <h2>NFT Preview</h2>
+            <button class="preview-modal-close" onclick="closePreviewModal()">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+
+          <div class="preview-modal-body">
+            <!-- Preview Canvas -->
+            <div class="preview-canvas">
+              <div id="previewRoom" class="preview-room modern-room">
+                <div class="room-lighting"></div>
+                <div class="nft-frame-container">
+                  <div id="nftFrame" class="nft-frame classic-frame">
+                    <img id="previewNftImage" src="" alt="" class="preview-nft-image">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="preview-controls">
+              <div class="controls-section">
+                <h3>Room Environment</h3>
+                <div class="control-group">
+                  <button class="control-btn room-btn active" data-room="modern-living">
+                    <div class="control-icon">
+                      <ion-icon name="home-outline"></ion-icon>
+                    </div>
+                    <span>Modern Living</span>
+                  </button>
+                  <button class="control-btn room-btn" data-room="art-gallery">
+                    <div class="control-icon">
+                      <ion-icon name="library-outline"></ion-icon>
+                    </div>
+                    <span>Art Gallery</span>
+                  </button>
+                  <button class="control-btn room-btn" data-room="office">
+                    <div class="control-icon">
+                      <ion-icon name="business-outline"></ion-icon>
+                    </div>
+                    <span>Office</span>
+                  </button>
+                  <button class="control-btn room-btn" data-room="futuristic">
+                    <div class="control-icon">
+                      <ion-icon name="planet-outline"></ion-icon>
+                    </div>
+                    <span>Futuristic</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="controls-section">
+                <h3>Frame Style</h3>
+                <div class="control-group">
+                  <button class="control-btn frame-btn active" data-frame="modern-frame">
+                    <div class="control-icon">
+                      <ion-icon name="square-outline"></ion-icon>
+                    </div>
+                    <span>Modern</span>
+                  </button>
+                  <button class="control-btn frame-btn" data-frame="classic-gold">
+                    <div class="control-icon">
+                      <ion-icon name="medal-outline"></ion-icon>
+                    </div>
+                    <span>Classic Gold</span>
+                  </button>
+                  <button class="control-btn frame-btn" data-frame="wooden-frame">
+                    <div class="control-icon">
+                      <ion-icon name="leaf-outline"></ion-icon>
+                    </div>
+                    <span>Wooden</span>
+                  </button>
+                  <button class="control-btn frame-btn" data-frame="digital-screen">
+                    <div class="control-icon">
+                      <ion-icon name="tablet-landscape-outline"></ion-icon>
+                    </div>
+                    <span>Digital Screen</span>
+                  </button>
+                  <button class="control-btn frame-btn" data-frame="holographic">
+                    <div class="control-icon">
+                      <ion-icon name="diamond-outline"></ion-icon>
+                    </div>
+                    <span>Holographic</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="controls-section">
+                <h3>Size & Position</h3>
+                <div class="slider-group">
+                  <label for="sizeSlider">Size</label>
+                  <input type="range" id="sizeSlider" min="50" max="150" value="100" class="control-slider">
+                  <span id="sizeValue">100%</span>
+                </div>
+                <div class="slider-group">
+                  <label for="positionXSlider">Horizontal Position</label>
+                  <input type="range" id="positionXSlider" min="-50" max="50" value="0" class="control-slider">
+                  <span id="positionXValue">0%</span>
+                </div>
+                <div class="slider-group">
+                  <label for="positionYSlider">Vertical Position</label>
+                  <input type="range" id="positionYSlider" min="-30" max="30" value="0" class="control-slider">
+                  <span id="positionYValue">0%</span>
+                </div>
+              </div>
+
+              <div class="controls-section">
+                <h3>Lighting</h3>
+                <div class="slider-group">
+                  <label for="brightnessSlider">Brightness</label>
+                  <input type="range" id="brightnessSlider" min="50" max="150" value="100" class="control-slider">
+                  <span id="brightnessValue">100%</span>
+                </div>
+                <div class="slider-group">
+                  <label for="contrastSlider">Contrast</label>
+                  <input type="range" id="contrastSlider" min="50" max="150" value="100" class="control-slider">
+                  <span id="contrastValue">100%</span>
+                </div>
+                <div class="control-group">
+                  <button class="control-btn lighting-btn active" data-lighting="natural">
+                    <div class="control-icon">
+                      <ion-icon name="sunny-outline"></ion-icon>
+                    </div>
+                    <span>Natural</span>
+                  </button>
+                  <button class="control-btn lighting-btn" data-lighting="warm">
+                    <div class="control-icon">
+                      <ion-icon name="flame-outline"></ion-icon>
+                    </div>
+                    <span>Warm</span>
+                  </button>
+                  <button class="control-btn lighting-btn" data-lighting="cool">
+                    <div class="control-icon">
+                      <ion-icon name="snow-outline"></ion-icon>
+                    </div>
+                    <span>Cool</span>
+                  </button>
+                  <button class="control-btn lighting-btn" data-lighting="dramatic">
+                    <div class="control-icon">
+                      <ion-icon name="bulb-outline"></ion-icon>
+                    </div>
+                    <span>Dramatic</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="preview-actions">
+                <button class="preview-action-btn secondary" onclick="resetPreview()">
+                  <ion-icon name="refresh-outline"></ion-icon>
+                  <span>Reset</span>
+                </button>
+                <button class="preview-action-btn primary" onclick="savePreview()">
+                  <ion-icon name="download-outline"></ion-icon>
+                  <span>Save Image</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buy Now Modal -->
+      <div id="buyNowModal" class="transaction-modal">
+        <div class="transaction-modal-content">
+          <div class="transaction-modal-header">
+            <h2>Complete Purchase</h2>
+            <button class="transaction-modal-close" onclick="closeBuyNowModal()">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+
+          <div class="transaction-modal-body">
+            <div class="nft-preview">
+              <img id="buyNftImage" src="" alt="" class="nft-preview-image">
+              <div class="nft-preview-info">
+                <h3 id="buyNftTitle"></h3>
+                <p class="current-price">Price: <span id="buyCurrentPrice"></span> ETH</p>
+              </div>
+            </div>
+
+            <div class="purchase-summary">
+              <div class="summary-row">
+                <span>Item price</span>
+                <span id="buySummaryPrice">0.00 ETH</span>
+              </div>
+              <div class="summary-row">
+                <span>Service fee (2.5%)</span>
+                <span id="buyServiceFee">0.00 ETH</span>
+              </div>
+              <div class="summary-row">
+                <span>Creator royalty (5%)</span>
+                <span id="buyRoyalty">0.00 ETH</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total</span>
+                <span id="buyTotal">0.00 ETH</span>
+              </div>
+            </div>
+
+            <div class="wallet-balance">
+              <div class="balance-info">
+                <ion-icon name="wallet-outline"></ion-icon>
+                <span>Your balance: <strong>12.45 ETH</strong></span>
+              </div>
+            </div>
+
+            <button class="transaction-btn primary" onclick="submitPurchase()">
+              <ion-icon name="flash-outline"></ion-icon>
+              <span>Buy Now</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- 
+    FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-socials">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.png" width="68" height="48" alt="Logo">
+          </a>
+
+          <p class="footer-text">
+            Stay connected by following my socials and joining my Discord server for the latest updates!
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="https://www.facebook.com/renierbong.remorin/" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/_akitahachiko_/" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.pinterest.ph/renierbong/" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://discord.gg/S7VM44V8T6" class="social-link">
+                <ion-icon name="logo-discord"></ion-icon>
+                <ion-icon name="logo-discord"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Useful Links</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">All NFTs</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">How It Works</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Create</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Explore</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Privacy & Terms</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Community</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Help Center</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Partners</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Suggestions</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Blog</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Newsletter</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-bottom"></div>
+
+    </div>
+  </footer>
+
+
+  <!-- 
+    BACK TO TOP
+  -->
+  <!--  display the button after scrolling to a certain point -->
+  <a href="#top" class="back-to-top" aria-label="Back to Top" data-back-top-btn>
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </a>
+
+  <!-- 
+    custom js link
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js"></script>
+  <script src="https://unpkg.com/@walletconnect/web2-provider@2.10.7/dist/umd/index.min.js"></script>
+  <script src="https://unpkg.com/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="./assets/js/skript.js"></script>
+
+  <!-- 
+    ionicon link
+  -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

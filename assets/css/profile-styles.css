@@ -1,0 +1,1214 @@
+/*-----------------------------------*\
+            PROFILE SECTION
+\*-----------------------------------*/
+
+.profile-section {
+  padding-block-start: 120px;
+  padding-block-end: var(--section-padding);
+  background-color: var(--rich-black-fogra-39);
+  min-height: 100vh;
+}
+
+.profile-header {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius-8);
+  overflow: hidden;
+  margin-bottom: -80px;
+  position: relative;
+  z-index: 1;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: flex-start;
+  text-align: left;
+  padding: 30px;
+  background-color: var(--eerie-black-1);
+  border: 1px solid var(--raisin-black);
+  border-radius: var(--radius-8);
+  margin: 0 20px;
+  gap: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: var(--transition-2);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--rich-black-fogra-39);
+  overflow: hidden;
+  margin-bottom: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 3;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-details {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 10px;
+}
+
+.profile-name {
+  font-size: var(--fs-2);
+  font-weight: var(--fw-700);
+  color: var(--white);
+  margin-bottom: 8px;
+  font-family: var(--ff-jost);
+  text-align: center;
+}
+
+.profile-username {
+  font-size: var(--fs-4);
+  color: var(--han-purple);
+  margin-bottom: 20px;
+  font-weight: var(--fw-600);
+  text-align: center;
+}
+
+.profile-bio {
+  font-size: var(--fs-5);
+  color: var(--spanish-gray);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 25px;
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 16px 12px;
+  background-color: var(--eerie-black-1);
+  border-radius: var(--radius-6);
+  border: 1px solid var(--raisin-black);
+  transition: var(--transition-2);
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-item:hover {
+  background-color: var(--raisin-black);
+  border-color: var(--han-purple);
+  transform: translateY(-2px);
+}
+
+.stat-number {
+  display: block;
+  font-size: var(--fs-3);
+  font-weight: var(--fw-700);
+  color: var(--white);
+  font-family: var(--ff-jost);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: var(--fs-5);
+  color: var(--spanish-gray);
+  font-weight: var(--fw-500);
+}
+
+.profile-nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.profile-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: var(--eerie-black-1);
+  border: 1px solid var(--raisin-black);
+  border-radius: 25px;
+  color: var(--spanish-gray);
+  cursor: pointer;
+  transition: var(--transition-2);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+  min-width: 120px;
+  justify-content: center;
+}
+
+.profile-nav-btn:hover {
+  background-color: var(--raisin-black);
+  border-color: var(--han-purple);
+  color: var(--white);
+}
+
+.profile-nav-btn.active {
+  background: var(--gradient-1);
+  border-color: transparent;
+  color: var(--white);
+}
+
+.profile-nav-btn ion-icon {
+  font-size: 1.6rem;
+  color: inherit;
+}
+
+.profile-content {
+  padding: 0 20px;
+}
+
+.profile-tab {
+  display: none;
+}
+
+.profile-tab.active {
+  display: block;
+}
+
+.nft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.nft-card {
+  background-color: var(--eerie-black-1);
+  border-radius: var(--radius-8);
+  overflow: hidden;
+  border: 1px solid var(--raisin-black);
+  transition: var(--transition-2);
+  cursor: pointer;
+}
+
+.nft-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--han-purple);
+  box-shadow: 0 10px 30px rgba(103, 58, 183, 0.2);
+}
+
+.nft-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.nft-info {
+  padding: 20px;
+}
+
+.nft-title {
+  font-size: var(--fs-4);
+  font-weight: var(--fw-600);
+  color: var(--white);
+  margin-bottom: 8px;
+  font-family: var(--ff-jost);
+}
+
+.nft-price {
+  font-size: var(--fs-5);
+  color: var(--han-purple);
+  font-weight: var(--fw-600);
+  margin: 0;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background-color: var(--eerie-black-1);
+  border-radius: var(--radius-8);
+  border: 1px solid var(--raisin-black);
+  transition: var(--transition-2);
+}
+
+.activity-item:hover {
+  background-color: var(--raisin-black);
+  border-color: var(--han-purple);
+}
+
+.activity-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--han-purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.activity-icon ion-icon {
+  font-size: 1.8rem;
+  color: var(--white);
+}
+
+.activity-details {
+  flex: 1;
+}
+
+.activity-text {
+  font-size: var(--fs-5);
+  color: var(--white);
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.activity-text strong {
+  color: var(--han-purple);
+  font-weight: var(--fw-600);
+}
+
+.activity-time {
+  font-size: 1.3rem;
+  color: var(--spanish-gray);
+  font-weight: var(--fw-500);
+}
+
+/*-----------------------------------*\
+        PROFILE RESPONSIVE
+\*-----------------------------------*/
+
+@media (max-width: 768px) {
+  .profile-banner {
+    height: 150px;
+    margin-bottom: -60px;
+  }
+  
+  .profile-info {
+    margin: 0 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-width: 3px;
+    margin-bottom: 12px;
+  }
+  
+  .profile-details {
+    align-items: center;
+  }
+  
+  .profile-name {
+    font-size: var(--fs-2);
+    text-align: center;
+  }
+  
+  .profile-username {
+    font-size: var(--fs-5);
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .profile-bio {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .profile-stats-section {
+    align-items: center;
+    min-width: auto;
+  }
+  
+  .profile-stats-section .profile-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+    max-width: 400px;
+  }
+  
+  .stat-item {
+    padding: 12px 8px;
+    min-height: 60px;
+  }
+  
+  .stat-number {
+    font-size: var(--fs-4);
+  }
+  
+  .profile-nav {
+    gap: 6px;
+  }
+  
+  .profile-nav-btn {
+    padding: 10px 16px;
+    font-size: 1.3rem;
+    min-width: 100px;
+  }
+  
+  .profile-nav-btn span {
+    display: none;
+  }
+  
+  .profile-nav-btn ion-icon {
+    font-size: 1.8rem;
+  }
+  
+  .nft-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .nft-image {
+    height: 250px;
+  }
+  
+  .activity-item {
+    padding: 16px;
+  }
+  
+  .activity-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .activity-icon ion-icon {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-section {
+    padding-block-start: 100px;
+  }
+  
+  .profile-info {
+    padding: 0 10px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .profile-stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  
+  .stat-item {
+    padding: 8px 4px;
+  }
+  
+  .stat-number {
+    font-size: 1.6rem;
+  }
+  
+  .stat-label {
+    font-size: 1.2rem;
+  }
+  
+  .profile-nav {
+    gap: 4px;
+    padding: 0 10px;
+  }
+  
+  .profile-nav-btn {
+    padding: 8px 12px;
+    min-width: auto;
+    flex: 1;
+  }
+  
+  .profile-content {
+    padding: 0 10px;
+  }
+  
+  .nft-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .nft-image {
+    height: 200px;
+  }
+  
+  .nft-info {
+    padding: 16px;
+  }
+  
+  .activity-item {
+    padding: 12px;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 769px) {
+  .profile-info {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    text-align: left;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 40px;
+  }
+  
+  .profile-avatar-section {
+    flex-shrink: 0;
+    align-items: center;
+  }
+  
+  .profile-avatar {
+    margin-bottom: 0;
+    width: 140px;
+    height: 140px;
+  }
+  
+  .profile-details {
+    flex: 1;
+    max-width: none;
+    margin-top: 0;
+  }
+  
+  .profile-name {
+    text-align: left;
+    font-size: var(--fs-1);
+  }
+  
+  .profile-username {
+    text-align: left;
+  }
+  
+  .profile-bio {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+  
+  .profile-stats-section {
+    align-items: flex-end;
+    min-width: 200px;
+  }
+  
+  .profile-stats-section .profile-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-banner {
+    height: 250px;
+    margin-bottom: -80px;
+  }
+  
+  .profile-avatar {
+    width: 160px;
+    height: 160px;
+    border-width: 6px;
+  }
+  
+  .profile-name {
+    font-size: var(--fs-1);
+  }
+  
+  .nft-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+  
+  .nft-image {
+    height: 320px;
+  }
+}/*------
+-----------------------------*\
+        CREATE SECTION
+\*-----------------------------------*/
+
+.create-section {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.create-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  gap: 20px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--raisin-black), transparent);
+}
+
+.create-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--gradient-1);
+  border: none;
+  border-radius: 25px;
+  color: var(--white);
+  font-size: var(--fs-4);
+  font-weight: var(--fw-600);
+  cursor: pointer;
+  transition: var(--transition-2);
+  box-shadow: 0 4px 15px rgba(103, 58, 183, 0.3);
+}
+
+.create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(103, 58, 183, 0.4);
+}
+
+.create-btn ion-icon {
+  font-size: 2rem;
+  color: var(--white);
+}
+
+.create-btn span {
+  font-family: var(--ff-jost);
+}
+
+/* Mobile responsive for create button */
+@media (max-width: 768px) {
+  .create-btn {
+    padding: 12px 24px;
+    font-size: var(--fs-5);
+  }
+  
+  .create-btn ion-icon {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-btn {
+    padding: 10px 20px;
+    font-size: 1.3rem;
+  }
+  
+  .create-btn ion-icon {
+    font-size: 1.6rem;
+  }
+  
+  .create-btn span {
+    display: none;
+  }
+}
+
+/*-----------------------------------*\
+        EDIT PROFILE BELOW AVATAR
+\*-----------------------------------*/
+
+.profile-avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.edit-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: var(--eerie-black-1);
+  border: 1px solid var(--raisin-black);
+  border-radius: 20px;
+  color: var(--white);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+  cursor: pointer;
+  transition: var(--transition-2);
+  white-space: nowrap;
+}
+
+.edit-profile-btn:hover {
+  background-color: var(--raisin-black);
+  border-color: var(--han-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(103, 58, 183, 0.3);
+}
+
+.edit-profile-btn ion-icon {
+  font-size: 1.6rem;
+  color: var(--han-purple);
+}
+
+/*-----------------------------------*\
+        LOAD MORE BUTTON
+\*-----------------------------------*/
+
+.load-more-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.load-more-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: var(--eerie-black-1);
+  border: 1px solid var(--raisin-black);
+  border-radius: 25px;
+  color: var(--spanish-gray);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+  cursor: pointer;
+  transition: var(--transition-2);
+}
+
+.load-more-btn:hover {
+  background-color: var(--raisin-black);
+  border-color: var(--han-purple);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.load-more-btn ion-icon {
+  font-size: 1.4rem;
+  color: inherit;
+  transition: var(--transition-2);
+}
+
+.load-more-btn:hover ion-icon {
+  transform: translateY(2px);
+}
+
+/* Mobile responsive for new buttons */
+@media (max-width: 768px) {
+  
+  .load-more-btn {
+    padding: 10px 20px;
+    font-size: 1.3rem;
+  }
+  
+  .create-divider {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-profile-btn {
+    padding: 6px 12px;
+    font-size: 1.2rem;
+  }
+  
+  .edit-profile-btn span {
+    display: none;
+  }
+  
+  .load-more-btn {
+    padding: 8px 16px;
+    font-size: 1.2rem;
+  }
+  
+  .create-divider {
+    gap: 10px;
+  }
+}/*----
+-------------------------------*\
+        REPOSITIONED EDIT PROFILE
+\*-----------------------------------*/
+
+.profile-header-info {
+  width: 100%;
+}
+
+.profile-name-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.edit-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: var(--eerie-black-1);
+  border: 1px solid var(--raisin-black);
+  border-radius: 15px;
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: var(--fw-500);
+  cursor: pointer;
+  transition: var(--transition-2);
+  white-space: nowrap;
+}
+
+.edit-profile-btn:hover {
+  background-color: var(--raisin-black);
+  border-color: var(--han-purple);
+  transform: translateY(-1px);
+}
+
+.edit-profile-btn ion-icon {
+  font-size: 1.4rem;
+  color: var(--han-purple);
+}
+
+/*-----------------------------------*\
+        CREATE NFT MODAL
+\*-----------------------------------*/
+
+.create-nft-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.create-nft-modal.active {
+  display: flex;
+}
+
+.create-nft-modal-content {
+  background-color: var(--rich-black-fogra-39);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  animation: modalSlideIn 0.3s ease-out;
+  border: 1px solid var(--raisin-black);
+}
+
+.create-nft-modal-header {
+  padding: 24px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--raisin-black);
+  margin-bottom: 24px;
+}
+
+.create-nft-modal-header h2 {
+  color: var(--white);
+  font-size: var(--fs-3);
+  font-weight: var(--fw-700);
+  margin: 0;
+  font-family: var(--ff-jost);
+}
+
+.create-nft-modal-close {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: var(--transition-2);
+}
+
+.create-nft-modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.create-nft-modal-body {
+  padding: 0 24px 24px;
+}
+
+.create-nft-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-section h3 {
+  color: var(--white);
+  font-size: var(--fs-4);
+  font-weight: var(--fw-600);
+  margin: 0;
+  font-family: var(--ff-jost);
+}
+
+.upload-area {
+  border: 2px dashed var(--raisin-black);
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-2);
+  background-color: var(--eerie-black-1);
+}
+
+.upload-area:hover {
+  border-color: var(--han-purple);
+  background-color: var(--raisin-black);
+}
+
+.upload-placeholder ion-icon {
+  font-size: 4rem;
+  color: var(--han-purple);
+  margin-bottom: 12px;
+}
+
+.upload-placeholder p {
+  color: var(--white);
+  font-size: var(--fs-4);
+  font-weight: var(--fw-600);
+  margin-bottom: 8px;
+}
+
+.upload-placeholder span {
+  color: var(--spanish-gray);
+  font-size: var(--fs-5);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: var(--white);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-600);
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: var(--eerie-black-1);
+  border: 1px solid var(--raisin-black);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--white);
+  font-size: var(--fs-5);
+  transition: var(--transition-2);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--han-purple);
+  box-shadow: 0 0 0 3px rgba(103, 58, 183, 0.3);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--spanish-gray);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.properties-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.property-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.property-name,
+.property-value {
+  flex: 1;
+  background-color: var(--eerie-black-1);
+  border: 1px solid var(--raisin-black);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--white);
+  font-size: var(--fs-5);
+}
+
+.property-name::placeholder,
+.property-value::placeholder {
+  color: var(--spanish-gray);
+}
+
+.remove-property-btn {
+  background-color: var(--eerie-black-1);
+  border: 1px solid var(--raisin-black);
+  border-radius: 6px;
+  padding: 8px;
+  color: var(--spanish-gray);
+  cursor: pointer;
+  transition: var(--transition-2);
+}
+
+.remove-property-btn:hover {
+  background-color: #ff4444;
+  border-color: #ff4444;
+  color: var(--white);
+}
+
+.add-property-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: var(--eerie-black-1);
+  border: 1px solid var(--raisin-black);
+  border-radius: 8px;
+  color: var(--white);
+  cursor: pointer;
+  transition: var(--transition-2);
+  align-self: flex-start;
+}
+
+.add-property-btn:hover {
+  background-color: var(--raisin-black);
+  border-color: var(--han-purple);
+}
+
+.add-property-btn ion-icon {
+  font-size: 1.6rem;
+  color: var(--han-purple);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid var(--raisin-black);
+}
+
+.cancel-btn {
+  padding: 12px 24px;
+  background-color: var(--eerie-black-1);
+  border: 1px solid var(--raisin-black);
+  border-radius: 8px;
+  color: var(--white);
+  cursor: pointer;
+  transition: var(--transition-2);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+}
+
+.cancel-btn:hover {
+  background-color: var(--raisin-black);
+}
+
+.create-nft-submit-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--gradient-1);
+  border: none;
+  border-radius: 8px;
+  color: var(--white);
+  cursor: pointer;
+  transition: var(--transition-2);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-600);
+}
+
+.create-nft-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(103, 58, 183, 0.4);
+}
+
+.create-nft-submit-btn ion-icon {
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+/* Mobile responsive for create NFT modal */
+@media (max-width: 768px) {
+  .create-nft-modal {
+    padding: 10px;
+  }
+  
+  .create-nft-modal-content {
+    max-height: 95vh;
+  }
+  
+  .create-nft-modal-header {
+    padding: 20px 20px 0;
+  }
+  
+  .create-nft-modal-body {
+    padding: 0 20px 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .upload-area {
+    padding: 30px 15px;
+  }
+  
+  .upload-placeholder ion-icon {
+    font-size: 3rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .profile-name-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .edit-profile-btn {
+    font-size: 1.1rem;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-nft-modal-header h2 {
+    font-size: var(--fs-4);
+  }
+  
+  .upload-placeholder p {
+    font-size: var(--fs-5);
+  }
+  
+  .property-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .property-name,
+  .property-value {
+    width: 100%;
+  }
+}/* Mobile 
+responsive for avatar section */
+@media (max-width: 768px) {
+  .profile-avatar-section {
+    gap: 12px;
+  }
+  
+  .edit-profile-btn {
+    padding: 6px 12px;
+    font-size: 1.3rem;
+  }
+  
+  .edit-profile-btn ion-icon {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-avatar-section {
+    gap: 10px;
+  }
+  
+  .edit-profile-btn {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+  }
+  
+  .edit-profile-btn ion-icon {
+    font-size: 1.3rem;
+  }
+  
+  .edit-profile-btn span {
+    display: none;
+  }
+}/*
+-----------------------------------*\
+        PROFILE STATS SECTION (RIGHT SIDE)
+\*-----------------------------------*/
+
+.profile-stats-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-width: 200px;
+}
+
+.profile-stats-section .profile-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 0;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Profile info hover effect to match cards */
+.profile-info:hover {
+  border-color: var(--han-purple);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}/*
+ Disable hover effects on mobile when background is hidden */
+@media (max-width: 768px) {
+  .profile-info:hover {
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
