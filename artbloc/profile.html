@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArtBloc - Profile</title>
+  <link rel="icon" href="./assets/images/nftgod.png" type="image/png">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/profile-styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@600;900&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- HEADER -->
+  <header class="header" data-header>
+    <div class="container">
+      <div class="overlay" data-overlay></div>
+
+      <a href="index.html" class="logo">
+        <img src="./assets/images/logo.png" width="68" height="48" alt="Logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <p class="navbar-title">Menu</p>
+          <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+          <li><a href="index.html" class="navbar-link">Home</a></li>
+          <li><a href="browse.html" class="navbar-link">Browse</a></li>
+          <li><a href="about.html" class="navbar-link">About the design</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-open-btn" aria-label="Open Menu" data-nav-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <div class="header-actions" id="headerActions">
+        <!-- This will be dynamically updated based on login status -->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <!-- PROFILE SECTION -->
+      <section class="profile-section">
+        <div class="container">
+
+          <!-- Profile Header -->
+          <div class="profile-header">
+            <div class="profile-banner">
+              <img src="./assets/images/brainrot.jpg" alt="Profile Banner" class="banner-image">
+            </div>
+
+            <div class="profile-info">
+              <div class="profile-avatar-section">
+                <div class="profile-avatar">
+                  <img src="./assets/images/feet-4.png" alt="Profile Avatar" class="avatar-image">
+                </div>
+                <button class="edit-profile-btn" onclick="alert('Edit profile feature coming soon!')">
+                  <ion-icon name="create-outline"></ion-icon>
+                  <span>Edit Profile</span>
+                </button>
+              </div>
+
+              <div class="profile-details">
+                <h1 class="profile-name" id="profileName">Demo User</h1>
+                <p class="profile-username" id="profileUsername">@demouser</p>
+
+                <p class="profile-bio">NFT enthusiast and digital art collector. Exploring the future of blockchain
+                  technology and decentralized creativity.</p>
+              </div>
+
+              <div class="profile-stats-section">
+                <div class="profile-stats">
+                  <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Owned</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Created</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-number">89</span>
+                    <span class="stat-label">Favorites</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-number">2.5K</span>
+                    <span class="stat-label">Following</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Navigation -->
+          <div class="profile-nav">
+            <button class="profile-nav-btn active" onclick="showProfileTab('owned')">
+              <ion-icon name="grid-outline"></ion-icon>
+              <span>Owned</span>
+            </button>
+            <button class="profile-nav-btn" onclick="showProfileTab('created')">
+              <ion-icon name="create-outline"></ion-icon>
+              <span>Created</span>
+            </button>
+            <button class="profile-nav-btn" onclick="showProfileTab('favorites')">
+              <ion-icon name="heart-outline"></ion-icon>
+              <span>Favorites</span>
+            </button>
+            <button class="profile-nav-btn" onclick="showProfileTab('activity')">
+              <ion-icon name="pulse-outline"></ion-icon>
+              <span>Activity</span>
+            </button>
+          </div>
+
+          <!-- Profile Content -->
+          <div class="profile-content">
+
+            <!-- Owned NFTs Tab -->
+            <div id="ownedTab" class="profile-tab active">
+              <div class="nft-grid">
+                <div class="nft-card">
+                  <img src="./assets/images/nft.jpg" alt="Bad Deck" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Bad Deck</h3>
+                    <p class="nft-price">1.5 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/nft2.jpg" alt="Small Deck" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Small Deck</h3>
+                    <p class="nft-price">2.7 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/feet-1.png" alt="Mogged Feet" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Mogged Feet</h3>
+                    <p class="nft-price">1.8 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/nft3.jpg" alt="Double Deck" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Double Deck</h3>
+                    <p class="nft-price">2.3 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/feet-4.png" alt="Happy Feet" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Happy Feet</h3>
+                    <p class="nft-price">0.69 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/feet-3.png" alt="Feet Collection #3" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Collection #3</h3>
+                    <p class="nft-price">3.2 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/1.jpg" alt="Collection #1" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Collection #1</h3>
+                    <p class="nft-price">1.2 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/2.jpg" alt="Collection #2" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Collection #2</h3>
+                    <p class="nft-price">2.1 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/3.jpg" alt="Collection #3" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Collection #3</h3>
+                    <p class="nft-price">1.9 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/4.jpg" alt="Collection #4" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Collection #4</h3>
+                    <p class="nft-price">1.6 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/5.jpg" alt="Collection #5" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Collection #5</h3>
+                    <p class="nft-price">2.8 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/6.jpg" alt="Collection #6" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Collection #6</h3>
+                    <p class="nft-price">3.5 ETH</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="load-more-section">
+                <button class="load-more-btn" onclick="alert('Load more feature coming soon!')">
+                  <span>Load More</span>
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+
+            <!-- Created NFTs Tab -->
+            <div id="createdTab" class="profile-tab">
+              <div class="create-section">
+                <div class="create-divider">
+                  <div class="divider-line"></div>
+                  <button class="create-btn" onclick="openCreateNFTModal()">
+                    <ion-icon name="add-outline"></ion-icon>
+                    <span>Create New NFT</span>
+                  </button>
+                  <div class="divider-line"></div>
+                </div>
+              </div>
+
+              <div class="nft-grid">
+                <div class="nft-card">
+                  <img src="./assets/images/feet-4.png" alt="Happy Feet" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Happy Feet</h3>
+                    <p class="nft-price">0.69 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/feet-1.png" alt="feet-1" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Feet Collection #1</h3>
+                    <p class="nft-price">4.1 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/feet-2.png" alt="Feet Collection #2" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Feet Collection #2</h3>
+                    <p class="nft-price">1.2 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/feet-3.png" alt="Feet Collection #3" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Feet Collection #3</h3>
+                    <p class="nft-price">1.5 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/Final Render.gif" alt="Final Render" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Final Render</h3>
+                    <p class="nft-price">2.8 ETH</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="load-more-section">
+                <button class="load-more-btn" onclick="alert('Load more feature coming soon!')">
+                  <span>Load More</span>
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+
+            <!-- Favorites Tab -->
+            <div id="favoritesTab" class="profile-tab">
+              <div class="nft-grid">
+                <div class="nft-card">
+                  <img src="./assets/images/Kanye.jpg" alt="Kanye Art" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Kanye Art</h3>
+                    <p class="nft-price">5.2 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/KanyeCake.jpg" alt="Kanye Cake" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Kanye Cake</h3>
+                    <p class="nft-price">6.7 ETH</p>
+                  </div>
+                </div>
+
+                <div class="nft-card">
+                  <img src="./assets/images/Web-Abi.jpg" alt="Web Abi" class="nft-image">
+                  <div class="nft-info">
+                    <h3 class="nft-title">Web Abi</h3>
+                    <p class="nft-price">8.9 ETH</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="load-more-section">
+                <button class="load-more-btn" onclick="alert('Load more feature coming soon!')">
+                  <span>Load More</span>
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+
+            <!-- Activity Tab -->
+            <div id="activityTab" class="profile-tab">
+              <div class="activity-list">
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <ion-icon name="bag-outline"></ion-icon>
+                  </div>
+                  <div class="activity-details">
+                    <p class="activity-text">Purchased <strong>Bad Deck</strong> for <strong>1.5 ETH</strong></p>
+                    <span class="activity-time">2 hours ago</span>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </div>
+                  <div class="activity-details">
+                    <p class="activity-text">Added <strong>Animated Render</strong> to favorites</p>
+                    <span class="activity-time">1 day ago</span>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <ion-icon name="create-outline"></ion-icon>
+                  </div>
+                  <div class="activity-details">
+                    <p class="activity-text">Created <strong>Happy Feet</strong></p>
+                    <span class="activity-time">3 days ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-socials">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.png" width="68" height="48" alt="Logo">
+          </a>
+          <p class="footer-text">
+            Stay connected by following my socials and joining my Discord server for the latest updates!
+          </p>
+          <ul class="social-list">
+            <li>
+              <a href="https://www.facebook.com/renierbong.remorin/" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/_akitahachiko_/" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.pinterest.ph/renierbong/" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://discord.gg/S7VM44V8T6" class="social-link">
+                <ion-icon name="logo-discord"></ion-icon>
+                <ion-icon name="logo-discord"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Useful Links</p>
+          </li>
+          <li><a href="#" class="footer-link">All NFTs</a></li>
+          <li><a href="#" class="footer-link">How It Works</a></li>
+          <li><a href="#" class="footer-link">Create</a></li>
+          <li><a href="#" class="footer-link">Explore</a></li>
+          <li><a href="#" class="footer-link">Privacy & Terms</a></li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Community</p>
+          </li>
+          <li><a href="#" class="footer-link">Help Center</a></li>
+          <li><a href="#" class="footer-link">Partners</a></li>
+          <li><a href="#" class="footer-link">Suggestions</a></li>
+          <li><a href="#" class="footer-link">Blog</a></li>
+          <li><a href="#" class="footer-link">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom"></div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <a href="#top" class="back-to-top" aria-label="Back to Top" data-back-top-btn>
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </a>
+
+  <!-- Wallet Connection Modal -->
+  <div id="walletModal" class="wallet-modal">
+    <div class="wallet-modal-content">
+      <div class="wallet-modal-header">
+        <div class="wallet-modal-logo">
+          <img src="./assets/images/logo.png" width="48" height="34" alt="ArtBloc Logo">
+        </div>
+        <h2>Connect with ArtBloc</h2>
+        <button class="wallet-modal-close" onclick="closeWalletModal()">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+
+      <div class="wallet-modal-body">
+        <div class="wallet-options">
+          <button class="wallet-option-btn" onclick="connectWallet('metamask')">
+            <div class="wallet-icon metamask">
+              <ion-icon name="logo-firefox"></ion-icon>
+            </div>
+            <span>MetaMask</span>
+          </button>
+
+          <button class="wallet-option-btn" onclick="connectWallet('coinbase')">
+            <div class="wallet-icon coinbase">
+              <ion-icon name="card"></ion-icon>
+            </div>
+            <span>Coinbase Wallet</span>
+          </button>
+
+          <button class="wallet-option-btn" onclick="connectWallet('abstract')">
+            <div class="wallet-icon abstract">
+              <ion-icon name="star-outline"></ion-icon>
+            </div>
+            <span>Abstract</span>
+          </button>
+
+          <button class="wallet-option-btn" onclick="connectWallet('walletconnect')">
+            <div class="wallet-icon walletconnect">
+              <ion-icon name="phone-portrait"></ion-icon>
+            </div>
+            <span>WalletConnect</span>
+          </button>
+
+          <button class="wallet-option-btn more-options" onclick="showMoreWallets()">
+            <span>More Wallet Options</span>
+          </button>
+        </div>
+
+        <div class="wallet-separator">
+          <span>or continue with email</span>
+        </div>
+
+        <button class="wallet-option-btn email-option" onclick="connectWithEmail()">
+          <span>Continue with email</span>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+
+      <div class="wallet-modal-footer">
+        <p>By connecting your wallet and using ArtBloc, you agree to our <a href="#">Terms of Service</a> & <a
+            href="#">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create NFT Modal -->
+  <div id="createNFTModal" class="create-nft-modal">
+    <div class="create-nft-modal-content">
+      <div class="create-nft-modal-header">
+        <h2>Create New NFT</h2>
+        <button class="create-nft-modal-close" onclick="closeCreateNFTModal()">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+
+      <div class="create-nft-modal-body">
+        <form class="create-nft-form">
+          <div class="form-section">
+            <h3>Upload Artwork</h3>
+            <div class="upload-area" onclick="document.getElementById('nftFile').click()">
+              <div class="upload-placeholder">
+                <ion-icon name="cloud-upload-outline"></ion-icon>
+                <p>Click to upload or drag and drop</p>
+                <span>PNG, JPG, GIF, MP4 (Max 100MB)</span>
+              </div>
+              <input type="file" id="nftFile" accept="image/*,video/*" style="display: none;">
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>NFT Details</h3>
+            <div class="form-group">
+              <label for="nftName">Name *</label>
+              <input type="text" id="nftName" placeholder="Enter NFT name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="nftDescription">Description</label>
+              <textarea id="nftDescription" placeholder="Describe your NFT" rows="4"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nftPrice">Price (ETH)</label>
+                <input type="number" id="nftPrice" placeholder="0.00" step="0.01" min="0">
+              </div>
+              <div class="form-group">
+                <label for="nftRoyalty">Royalty (%)</label>
+                <input type="number" id="nftRoyalty" placeholder="10" min="0" max="50">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Properties (Optional)</h3>
+            <div class="properties-container">
+              <div class="property-item">
+                <input type="text" placeholder="Property name" class="property-name">
+                <input type="text" placeholder="Value" class="property-value">
+                <button type="button" class="remove-property-btn">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+            <button type="button" class="add-property-btn" onclick="addProperty()">
+              <ion-icon name="add-outline"></ion-icon>
+              <span>Add Property</span>
+            </button>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="cancel-btn" onclick="closeCreateNFTModal()">Cancel</button>
+            <button type="submit" class="create-nft-submit-btn">
+              <ion-icon name="rocket-outline"></ion-icon>
+              <span>Create NFT</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./assets/js/skript.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
